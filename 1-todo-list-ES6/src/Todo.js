@@ -1,16 +1,18 @@
 import React, { Component } from 'react';
+import "./Todo.css";
 
 class Todo extends Component {
   constructor(props) {
     super(props);
     this.state = {
       isEditing: false,
-      task: this.props.task
+      task: this.props.task,
     };
     this.handleRemove = this.handleRemove.bind(this);
     this.toggleForm = this.toggleForm.bind(this);
     this.handleChange = this.handleChange.bind(this);
     this.handleUpdate = this.handleUpdate.bind(this);
+    this.handleToggle = this.handleToggle.bind(this);
   }
   handleRemove() {
     this.props.removeTodo(this.props.id);
@@ -24,11 +26,14 @@ class Todo extends Component {
   handleUpdate(evt) {
     evt.preventDefault();
     this.props.updateTodo(this.props.id, this.state.task);
-    this.state.isEditing = false;
+    this.setState({ isEditing: false });
   }
+  handleToggle(evt) {
+    this.props.toggleTodo(this.props.id);
+  }
+  
   render() {
     let result;
-
     if (this.state.isEditing) {
       result = 
         <div>
@@ -44,22 +49,22 @@ class Todo extends Component {
             </li>
           </form>
         </div>
-      
     } else {
       result = (
         <div>
-          <li>
-            {this.props.task}
-            <button onClick={this.toggleForm}>Edit</button>
-            <button onClick={this.handleRemove}>X</button>
+          <li 
+            className={this.props.completed && "completed"}
+            onClick={this.handleToggle}
+          >
+              {this.props.task}
           </li>
+          <button onClick={this.toggleForm}>Edit</button>
+          <button onClick={this.handleRemove}>X</button>
         </div>
       )
     }
-
     return result;
   }
-  
 }
 
 export default Todo;
