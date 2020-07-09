@@ -14,7 +14,7 @@ class TodoList extends Component {
   }
   create(newTodo) {
     //alert(`TodoList create(): ${newTodo.task}`);
-    this.setState({ 
+    this.setState({
       todos: [...this.state.todos, newTodo]
     });
   }
@@ -42,29 +42,26 @@ class TodoList extends Component {
 
   render() {
     const todos = this.state.todos.map(todo => (
-      <Todo 
-        key={todo.id} 
+      <Todo
+        key={todo.id}
         id={todo.id}
         task={todo.task}
-        completed={todo.completed} 
-        removeTodo={this.remove} 
+        completed={todo.completed}
+        removeTodo={this.remove}
         updateTodo={this.update}
         toggleTodo={this.toggleCompletion}
       />
     ));
 
-    this.state.todos.map(todo => 
+    this.state.todos.map(todo =>
       console.log("TodoList.js ln-49, todo.task:", todo.task)
     );
 
     return (
       <>
         <h1>TodoList</h1>
-
-        {/* <NewTodoForm /> */}
-        <NewTodoForm createTodo={this.create} />   
-
-        {todos}             
+        <NewTodoForm createTodo={this.create} />
+        {todos}
       </>
     );
   }
