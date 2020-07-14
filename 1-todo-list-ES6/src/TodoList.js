@@ -5,6 +5,7 @@ import NewTodoForm from "./NewTodoForm";
 class TodoList extends Component {
   constructor(props) {
     super(props);
+
     this.state = { todos: [] };
 
     this.create = this.create.bind(this);
@@ -66,6 +67,5 @@ class TodoList extends Component {
     );
   }
 }
-
 
 export default TodoList;
