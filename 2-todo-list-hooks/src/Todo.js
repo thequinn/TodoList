@@ -11,7 +11,7 @@ import EditIcon from "@material-ui/icons/Edit";
 import ListItemSecondaryAction from "@material-ui/core/ListItemSecondaryAction";
 
 function Todo({ count,  id, task, completed, removeTodo, toggleTodo, editTodo }) {
-  // alert(`Todo.js,   count: ${count},   task: ${task}`);
+  alert(`Todo.js,   count: ${count},   task: ${task}`);
   const [isEditing, toggleIsEditing] = useToggle(false); 
   
   return (
