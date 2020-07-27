@@ -11,19 +11,19 @@ import EditIcon from "@material-ui/icons/Edit";
 import ListItemSecondaryAction from "@material-ui/core/ListItemSecondaryAction";
 
 function Todo({ count,  id, task, completed, removeTodo, toggleTodo, editTodo }) {
-  alert(`Todo.js,   count: ${count},   task: ${task}`);
-  const [isEditing, toggleIsEditing] = useToggle(false); 
-  
+  //alert(`Todo.js,   count: ${count},   task: ${task}`);
+  const [isEditing, toggleIsEditing] = useToggle(false);
+
   return (
     <ListItem style={{ height: "64px" }}>
-      { isEditing ? ( 
-      <EditTodoForm 
+      { isEditing ? (
+      <EditTodoForm
         id={id}
         task={task}
         toggleEditForm={toggleIsEditing}
         editTodo={editTodo}
       />
-      ) : ( 
+      ) : (
       <>
         <Checkbox checked={completed} onClick={() => toggleTodo(id)} />
         <ListItemText>
