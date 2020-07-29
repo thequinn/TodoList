@@ -1,27 +1,28 @@
-import React, { useState } from 'react';
+import React from "react";
+import useInputState from "./hooks/useInputState";
 
-function TodoForm(props) {
-  const [todo, setTodo] = useState();
+import TextField from "@material-ui/core/TextField";
+import Paper from "@material-ui/core/Paper";
 
-  function handleChange(evt) {
-    setTodo(evt.target.value)
-  }
-  function handleSubmit(evt) {
-    evt.preventDefault();
-    props.addTodo(todo);
-    setTodo(""); 
-  }
+function TodoForm({ addTodo }) {
+  const [value, handleChange, reset] = useInputState("");
 
   return (
-    <form onSubmit={handleSubmit}> 
-      <input
-        type="text"
-        placeholder="New item"
-        value={todo} 
-        onChange={handleChange} 
-      />
-      <input type="submit" value="Add" />
-    </form>
+    <Paper style={{ margin:'1rem 0', padding:'0 1rem' }}>
+      <form onSubmit={evt => {
+        evt.preventDefault();
+        addTodo(value);
+        reset();
+      }}>
+        <TextField 
+          value={value} 
+          onChange={handleChange} 
+          margin='normal'
+          label='Add New Todo'
+          fullWidth
+        />
+      </form>
+    </Paper>
   );
 }
 
