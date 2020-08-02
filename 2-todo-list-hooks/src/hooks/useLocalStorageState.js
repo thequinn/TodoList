@@ -7,7 +7,7 @@ function useLocalStorageState(key, defaultVal) {
 
     try {
       val = JSON.parse( window.localStorage.getItem(key) || JSON.stringify(defaultVal) )
-    } 
+    }
     catch (err) {
       val = defaultVal;
     }
