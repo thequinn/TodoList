@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-
 function useLocalStorageState(key, defaultVal) {
   const [state, setState] = useState(() => {
     let value;
@@ -18,5 +17,4 @@ function useLocalStorageState(key, defaultVal) {
   }, [state]);
   return [state, setState];
 }
-
 export { useLocalStorageState };
