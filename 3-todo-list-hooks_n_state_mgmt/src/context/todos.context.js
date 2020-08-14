@@ -11,10 +11,10 @@ export const TodosContext = createContext();
 
 export function TodosProvider(props) {
   //const todoStuff = useTodoState(defaultTodos);
-  const [todos, dispatch] = useReducer({todoReducer, defaultTodos});
+  const [todos, dispatch] = useReducer(todoReducer, defaultTodos);
 
   return (
-    <TodosContext.Provider value={todos, dispatch}>
+    <TodosContext.Provider value={ { todos, dispatch }}>
       {props.children}
     </TodosContext.Provider>
   );

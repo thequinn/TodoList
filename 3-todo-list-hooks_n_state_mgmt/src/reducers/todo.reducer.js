@@ -1,10 +1,9 @@
-import React from 'react';
 import uuid from "uuid/v4";
 
 function reducer(state, action) {
   switch (action.type) {
     case 'ADD':
-      return [...state, { id: uuid(), task: action.newTodoText, completed: false }];
+      return [...state, { id: uuid(), task: action.task, completed: false }];
     case 'REMOVE':
       return state.filter(todo => todo.id !== action.todoId);
     case 'TOGGLE':
