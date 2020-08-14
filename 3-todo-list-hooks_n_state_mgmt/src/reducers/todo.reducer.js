@@ -1,18 +1,19 @@
 import React from 'react';
+import uuid from "uuid/v4";
 
 function reducer(state, action) {
   switch (action.type) {
     case 'ADD':
-      return [...state, { id: uuid(), task: newTodoText, completed: false }];
+      return [...state, { id: uuid(), task: action.newTodoText, completed: false }];
     case 'REMOVE':
-      return state.filter(todo => todo.id !== todoId);
+      return state.filter(todo => todo.id !== action.todoId);
     case 'TOGGLE':
       return state.map(todo =>
-        todo.id === todoId ? { ...todo, completed: !todo.completed } : todo
+        todo.id === action.todoId ? { ...todo, completed: !todo.completed } : todo
       );
     case 'EDIT':
       return state.map(todo =>
-        todo.id === todoId ? { ...todo, task: newTask } : todo
+        todo.id === action.todoId ? { ...todo, task: action.newTask } : todo
       );
     default:
       return state;
