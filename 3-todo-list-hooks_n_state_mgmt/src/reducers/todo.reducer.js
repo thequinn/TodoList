@@ -1,6 +1,7 @@
 import uuid from "uuid/v4";
 
 function reducer(state, action) {
+
   switch (action.type) {
     case 'ADD':
       return [...state, { id: uuid(), task: action.task, completed: false }];
