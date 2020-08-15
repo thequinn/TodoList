@@ -10,12 +10,11 @@ import Grid from "@material-ui/core/Grid";
 import {TodosProvider} from "./context/todos.context";
 
 function TodoApp() {
-  // Replaced by using Context
-  // const initialTodos = [{ id: 1, task: "Walk fish", completed: true }];
+  // const initialTodos = [{ id: 1, task: "Walk The Goldfish", completed: true }];
   // const { todos, addTodo, removeTodo, toggleTodo, editTodo } = useTodoState(
   //   initialTodos
   // );
-
+  
   return (
     <Paper
       style={{
@@ -37,8 +36,8 @@ function TodoApp() {
           <TodosProvider>
             <TodoForm />
             <TodoList />
-        </TodosProvider>
-
+          </TodosProvider>
+        
         </Grid>
       </Grid>
     </Paper>
